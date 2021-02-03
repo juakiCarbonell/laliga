@@ -140,7 +140,7 @@ export const userLogin = (email, password) => async (dispatch) => {
 };
 
 export const userLogout = () => (dispatch) => {
-  // localStorage.removeItem('token');
+  localStorage.removeItem('token');
   dispatch({
     type: USER_LOGOUT,
   });

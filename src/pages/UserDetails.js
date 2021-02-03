@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams, useHistory } from 'react-router-dom';
 
-
 import { userDetails, userDelete } from '../actions/users';
 
 import Loader from '../components/Loader';
-import Modal from '../components/Modal'
+import Modal from '../components/Modal';
 import { PrimaryBtn } from '../components/Button';
 
 const User = () => {
@@ -16,22 +15,23 @@ const User = () => {
 
   const dispatch = useDispatch();
 
-
   const openMapHandler = () => setShowForm(true);
   const closeMapHandler = () => setShowForm(false);
 
   const { loading, error, user } = useSelector((state) => state.userDetails);
 
   const { success: successDelete } = useSelector((state) => state.userDelete);
+  const { token } = useSelector((state) => state.userLogin);
 
   useEffect(() => {
-    if (successDelete) {
+    console.log('effe')
+    if (successDelete || !token) {
       history.push('/');
     } else {
+      console.log('else')
       dispatch(userDetails(id));
     }
-  }, [dispatch, id, successDelete, history]);
-
+  }, [dispatch, id, successDelete, history, token]);
 
   const deleteHandler = (id) => {
     if (window.confirm('Are you sure?')) {
@@ -47,8 +47,7 @@ const User = () => {
         header='Edit'
         user={user}
         footer={<button onClick={closeMapHandler}>CLOSE</button>}
-      >
-      </Modal>
+      ></Modal>
       <Link to='/'>Back To Users List</Link>
       <h1>User</h1>
       {loading && <Loader />}

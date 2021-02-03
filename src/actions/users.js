@@ -99,6 +99,7 @@ export const userUpdate = (user) => async (dispatch) => {
     dispatch({
       type: USER_UPDATE_SUCCESS,
     });
+    dispatch(userDetails(user.id));
   } catch (error) {
     dispatch({
       type: USER_UPDATE_FAIL,

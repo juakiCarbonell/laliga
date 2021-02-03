@@ -33,9 +33,6 @@ const ModalOverlay = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log('firstName.trim().length', firstName.trim().length);
-    console.log(firstName);
-    console.log(lastName);
     if (firstName.trim().length === 0 || lastName.trim().length === 0) {
       alert('Invalid Input');
     } else {

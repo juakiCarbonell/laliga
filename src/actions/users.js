@@ -9,6 +9,7 @@ import {
   USER_DETAILS_SUCCESS,
   USER_DETAILS_REQUEST,
   USER_DELETE_FAIL,
+  USER_DELETE_RESET,
   USER_DELETE_SUCCESS,
   USER_DELETE_REQUEST,
   USER_UPDATE_FAIL,
@@ -74,6 +75,9 @@ export const userDelete = (id) => async (dispatch) => {
     await api.delete(`/users/${id}`);
     dispatch({
       type: USER_DELETE_SUCCESS,
+    });
+    dispatch({
+      type: USER_DELETE_RESET,
     });
   } catch (error) {
     dispatch({

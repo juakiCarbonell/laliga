@@ -6,6 +6,7 @@ import {
   USER_DETAILS_SUCCESS,
   USER_DETAILS_REQUEST,
   USER_DELETE_FAIL,
+  USER_DELETE_RESET,
   USER_DELETE_SUCCESS,
   USER_DELETE_REQUEST,
   USER_UPDATE_FAIL,
@@ -77,6 +78,8 @@ export const userDelete = (state = initialUserDeleteState, action) => {
       return { ...state, loading: false, success: true };
     case USER_DELETE_FAIL:
       return { ...state, loading: false, success: false };
+    case USER_DELETE_RESET:
+      return {...initialUserDeleteState}
     default:
       return state;
   }

@@ -51,7 +51,6 @@ export const userDetails = (id) => async (dispatch) => {
 
     const { data } = await api.get(`/users/${id}`);
     // const { data } = await axios.get('/users');
-    console.log("action", data);
     dispatch({
       type: USER_DETAILS_SUCCESS,
       payload: data.data,

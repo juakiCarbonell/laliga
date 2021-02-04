@@ -15,8 +15,8 @@ const User = () => {
 
   const dispatch = useDispatch();
 
-  const openMapHandler = () => setShowForm(true);
-  const closeMapHandler = () => setShowForm(false);
+  const openFormHandler = () => setShowForm(true);
+  const closeFormHandler = () => setShowForm(false);
 
   const { loading, error, user } = useSelector((state) => state.userDetails);
 
@@ -28,7 +28,6 @@ const User = () => {
     if (successDelete || !token) {
       history.push("/");
     } else {
-      console.log("else");
       dispatch(userDetails(id));
     }
   }, [dispatch, id, successDelete, history, token]);
@@ -43,10 +42,9 @@ const User = () => {
     <>
       <EditForm
         show={showForm}
-        onCancel={closeMapHandler}
+        onCancel={closeFormHandler}
         header="Edit"
         user={user}
-        footer={<button onClick={closeMapHandler}>CLOSE</button>}
       ></EditForm>
       <Link to="/">Back To Users List</Link>
       <h1>User</h1>
@@ -56,7 +54,7 @@ const User = () => {
       {/* <PrimaryBtn primary onClick={() => editHandler(user.id)}>
         EDIT
       </PrimaryBtn> */}
-      <PrimaryBtn primary onClick={openMapHandler}>
+      <PrimaryBtn primary onClick={openFormHandler}>
         Edit
       </PrimaryBtn>
       <PrimaryBtn onClick={() => deleteHandler(user.id)}>Delete</PrimaryBtn>

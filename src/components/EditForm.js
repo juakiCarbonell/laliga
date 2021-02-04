@@ -48,12 +48,7 @@ const ModalOverlay = (props) => {
       <header>
         <h2>{props.header}</h2>
       </header>
-      <form
-        onSubmit={submitHandler}
-        // onSubmit={
-        //   props.onSubmit ? props.onSubmit : (event) => event.preventDefault()
-        // }
-      >
+      <form onSubmit={submitHandler}>
         <div className={`modal__content ${props.contentClass}`}>
           <input
             type="text"
@@ -67,10 +62,8 @@ const ModalOverlay = (props) => {
           />
         </div>
         <button type="submit">Sumit</button>
-        <footer className={`modal__footer ${props.footerClass}`}>
-          {props.footer}
-        </footer>
       </form>
+      <button onClick={props.onCancel}>Cancel</button>
     </Wrapper>
   );
 

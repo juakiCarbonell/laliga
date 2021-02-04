@@ -8,6 +8,7 @@ const User = ({ user }) => {
   return (
     <>
       <div>{user.first_name}</div>
+      <div>{user.last_name}</div>
       <div>
         {token ? (
           <Link to={`/user/${user.id}`}>

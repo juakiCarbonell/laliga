@@ -18,8 +18,6 @@ const userInfoFromStorage = localStorage.getItem("token")
   ? JSON.parse(localStorage.getItem("token"))
   : null;
 
-console.log("userInfoFromStorage", userInfoFromStorage);
-
 const initalState = { userLogin: { token: userInfoFromStorage } };
 
 const store = createStore(reducer, initalState, applyMiddleware(...middleware));

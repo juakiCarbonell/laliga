@@ -5,6 +5,7 @@ import { Link, useParams, useHistory } from "react-router-dom";
 import { userDetails, userDelete } from "../actions/users";
 
 import Loader from "../components/Loader";
+import Error from "../components/Error";
 import EditForm from "../components/EditForm";
 import { PrimaryBtn } from "../components/Button";
 
@@ -24,7 +25,6 @@ const User = () => {
   const { token } = useSelector((state) => state.userLogin);
 
   useEffect(() => {
-    console.log("effe");
     if (successDelete || !token) {
       history.push("/");
     } else {
@@ -38,6 +38,13 @@ const User = () => {
     }
   };
 
+  if (loading) {
+    return <Loader />;
+  }
+  if (error) {
+    return <Error />;
+  }
+
   return (
     <>
       <EditForm
@@ -48,7 +55,6 @@ const User = () => {
       ></EditForm>
       <Link to="/">Back To Users List</Link>
       <h1>User</h1>
-      {loading && <Loader />}
       <p>First Name: {user.first_name}</p>
       <p>Last Name: {user.last_name}</p>
       {/* <PrimaryBtn primary onClick={() => editHandler(user.id)}>

@@ -33,12 +33,10 @@ export const userList = () => async (dispatch) => {
       payload: data.data,
     });
   } catch (error) {
+    console.log("error", error);
     dispatch({
       type: USER_LIST_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+      payload: error,
     });
   }
 };
@@ -58,10 +56,7 @@ export const userDetails = (id) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: USER_DETAILS_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+      payload: error,
     });
   }
 };
@@ -81,10 +76,7 @@ export const userDelete = (id) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: USER_DELETE_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+      payload: error,
     });
   }
 };
@@ -102,10 +94,7 @@ export const userUpdate = (user) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: USER_UPDATE_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+      payload: error,
     });
   }
 };
@@ -130,10 +119,7 @@ export const userLogin = (email, password) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: USER_LOGIN_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+      payload: error,
     });
   }
 };

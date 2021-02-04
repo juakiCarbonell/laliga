@@ -3,6 +3,9 @@ import { userLogin } from "../actions/users";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
+import Loader from "../components/Loader";
+import Error from "../components/Error";
+
 const Login = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("tracey.ramos@reqres.in");
@@ -26,6 +29,13 @@ const Login = () => {
     }
   };
 
+  if (loading) {
+    return <Loader />;
+  }
+  if (error) {
+    return <Error />;
+  }
+
   return (
     <>
       <header>
@@ -38,13 +48,21 @@ const Login = () => {
         // }
       >
         <div>
+          <label htmlFor="email">
+            <b>Email</b>
+          </label>
           <input
             type="text"
+            placeholder="Enter Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
+          <label htmlFor="password">
+            <b>Password</b>
+          </label>
           <input
             type="password"
+            placeholder="Enter Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />

@@ -10,17 +10,19 @@ function App() {
   return (
     <Router>
       <Header />
-      <Switch>
-        <Route path="/" exact>
-          <Users></Users>
-        </Route>
-        <Route path="/user/:id">
-          <UserDetails></UserDetails>
-        </Route>
-        <Route path="/login">
-          <Login></Login>
-        </Route>
-      </Switch>
+      <main className="container">
+        <Switch>
+          <Route path="/" exact>
+            <Users></Users>
+          </Route>
+          <Route path="/user/:id">
+            <UserDetails></UserDetails>
+          </Route>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
+        </Switch>
+      </main>
     </Router>
   );
 }

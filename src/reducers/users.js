@@ -20,28 +20,28 @@ import {
 
 const initialUsersState = {
   loading: false,
-  error: "",
+  error: null,
   users: [],
 };
 const initialUserState = {
   loading: false,
-  error: "",
+  error: null,
   user: {},
 };
 const initialUserDeleteState = {
   loading: false,
-  error: "",
+  error: null,
   sucess: false,
 };
 const initialUserUpdateState = {
   loading: false,
-  error: "",
+  error: null,
   user: {},
 };
 
 const initialUserLoginState = {
   loading: false,
-  error: "",
+  error: null,
   token: null,
 };
 

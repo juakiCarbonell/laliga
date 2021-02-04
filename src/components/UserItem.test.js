@@ -6,7 +6,7 @@ import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import User from "./User";
+import UserItem from "./UserItem";
 const mockStore = configureMockStore([thunk]);
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -21,7 +21,7 @@ describe("<User /> Logged in", () => {
     wrapper = mount(
       <Provider store={store}>
         <Router>
-          <User user={user} />
+          <UserItem user={user} />
         </Router>
       </Provider>
     );
@@ -41,7 +41,7 @@ describe("<User /> Logged out", () => {
     wrapper = mount(
       <Provider store={store}>
         <Router>
-          <User user={user} />
+          <UserItem user={user} />
         </Router>
       </Provider>
     );

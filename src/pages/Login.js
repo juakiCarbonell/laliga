@@ -22,8 +22,6 @@ const Login = () => {
     if (email.trim().length === 0 || password.trim().length === 0) {
       alert("Invalid Input");
     } else {
-      console.log("email", email);
-      console.log("passwo", password);
       dispatch(userLogin(email, password));
     }
   };

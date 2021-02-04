@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 
 const User = ({ user }) => {
   const { token } = useSelector((state) => state.userLogin);
-  console.log(user.email);
   return (
     <>
       <div>{user.first_name}</div>

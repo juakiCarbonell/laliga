@@ -10,7 +10,6 @@ const Header = () => {
     dispatch(userLogout());
   };
   const { token } = useSelector((state) => state.userLogin);
-  console.log("tolen", token);
   return (
     <div>
       <h1>LA LIGA</h1>

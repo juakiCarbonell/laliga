@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
-import { CSSTransition } from 'react-transition-group';
-import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
-import { userUpdate } from '../actions/users';
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+import { CSSTransition } from "react-transition-group";
+import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { userUpdate } from "../actions/users";
 
-import Backdrop from './Backdrop';
+import Backdrop from "./Backdrop";
 
 const Wrapper = styled.div`
   z-index: 100;
@@ -34,7 +34,7 @@ const ModalOverlay = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     if (firstName.trim().length === 0 || lastName.trim().length === 0) {
-      alert('Invalid Input');
+      alert("Invalid Input");
     } else {
       dispatch(
         userUpdate({ first_name: firstName, last_name: lastName, id: user.id })
@@ -56,17 +56,17 @@ const ModalOverlay = (props) => {
       >
         <div className={`modal__content ${props.contentClass}`}>
           <input
-            type='text'
+            type="text"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
           />
           <input
-            type='text'
+            type="text"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
           />
         </div>
-        <button type='submit'>Sumit</button>
+        <button type="submit">Sumit</button>
         <footer className={`modal__footer ${props.footerClass}`}>
           {props.footer}
         </footer>
@@ -74,7 +74,7 @@ const ModalOverlay = (props) => {
     </Wrapper>
   );
 
-  return ReactDOM.createPortal(content, document.getElementById('modal-hook'));
+  return ReactDOM.createPortal(content, document.getElementById("modal-hook"));
 };
 
 const Modal = (props) => {
@@ -86,7 +86,7 @@ const Modal = (props) => {
         mountOnEnter
         unmountOnExit
         timeout={200}
-        classNames='modal'
+        classNames="modal"
       >
         <ModalOverlay {...props} />
       </CSSTransition>

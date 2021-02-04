@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { userList } from '../actions/users';
+import { userList } from "../actions/users";
 
-import Loader from '../components/Loader';
-import User from '../components/User'
+import Loader from "../components/Loader";
+import User from "../components/User";
 
 const Users = () => {
   const dispatch = useDispatch();
@@ -18,13 +18,10 @@ const Users = () => {
     dispatch(userList());
   }, [dispatch]);
 
-
-
   return (
     <>
       <h1>Users</h1>
       {loading && <Loader />}
-      
 
       {users.map((user) => {
         return <User key={user.id} user={user} />;

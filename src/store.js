@@ -1,7 +1,7 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 
-import { userList, userDetails, userDelete, userLogin } from './reducers/users';
+import { userList, userDetails, userDelete, userLogin } from "./reducers/users";
 // import {} from './reducers/user';
 // import {} from './reducers/login';
 
@@ -14,13 +14,13 @@ const reducer = combineReducers({
 
 const middleware = [thunk];
 
-const userInfoFromStorage = localStorage.getItem('token')
-  ? JSON.parse(localStorage.getItem('token'))
+const userInfoFromStorage = localStorage.getItem("token")
+  ? JSON.parse(localStorage.getItem("token"))
   : null;
 
-console.log('userInfoFromStorage', userInfoFromStorage);
+console.log("userInfoFromStorage", userInfoFromStorage);
 
-const initalState = {userLogin: { token: userInfoFromStorage }};
+const initalState = { userLogin: { token: userInfoFromStorage } };
 
 const store = createStore(reducer, initalState, applyMiddleware(...middleware));
 // const store = createStore(

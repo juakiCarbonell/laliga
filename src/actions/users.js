@@ -1,5 +1,5 @@
 // import axios from 'axios';
-import api from '../apis/api';
+import api from "../apis/api";
 
 import {
   USER_LIST_FAIL,
@@ -19,7 +19,7 @@ import {
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAIL,
   USER_LOGOUT,
-} from '../costants/user';
+} from "../costants/user";
 
 export const userList = () => async (dispatch) => {
   try {
@@ -27,7 +27,7 @@ export const userList = () => async (dispatch) => {
       type: USER_LIST_REQUEST,
     });
 
-    const { data } = await api.get('/users');
+    const { data } = await api.get("/users");
     dispatch({
       type: USER_LIST_SUCCESS,
       payload: data.data,
@@ -51,7 +51,7 @@ export const userDetails = (id) => async (dispatch) => {
 
     const { data } = await api.get(`/users/${id}`);
     // const { data } = await axios.get('/users');
-    console.log('action', data);
+    console.log("action", data);
     dispatch({
       type: USER_DETAILS_SUCCESS,
       payload: data.data,
@@ -117,17 +117,17 @@ export const userLogin = (email, password) => async (dispatch) => {
       type: USER_LOGIN_REQUEST,
     });
 
-    const { data } = await api.post(`/login`, {email, password});
+    const { data } = await api.post(`/login`, { email, password });
     // const { data } = await api.post(`/login?email=${email}&password=${password}`);
 
-    console.log('data', data)
+    console.log("data", data);
 
     dispatch({
       type: USER_LOGIN_SUCCESS,
       payload: data,
     });
-    console.log('data', data)
-    localStorage.setItem('token', JSON.stringify(data.token));
+    console.log("data", data);
+    localStorage.setItem("token", JSON.stringify(data.token));
   } catch (error) {
     dispatch({
       type: USER_LOGIN_FAIL,
@@ -140,7 +140,7 @@ export const userLogin = (email, password) => async (dispatch) => {
 };
 
 export const userLogout = () => (dispatch) => {
-  localStorage.removeItem('token');
+  localStorage.removeItem("token");
   dispatch({
     type: USER_LOGOUT,
   });

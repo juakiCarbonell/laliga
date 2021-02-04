@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import styled from 'styled-components';
+import React from "react";
+import ReactDOM from "react-dom";
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   position: fixed;
@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 const Backdrop = (props) => {
   return ReactDOM.createPortal(
     <Wrapper onClick={props.onClick}></Wrapper>,
-    document.getElementById('backdrop-hook')
+    document.getElementById("backdrop-hook")
   );
 };
 

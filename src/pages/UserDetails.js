@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams, useHistory } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams, useHistory } from "react-router-dom";
 
-import { userDetails, userDelete } from '../actions/users';
+import { userDetails, userDelete } from "../actions/users";
 
-import Loader from '../components/Loader';
-import Modal from '../components/Modal';
-import { PrimaryBtn } from '../components/Button';
+import Loader from "../components/Loader";
+import EditForm from "../components/EditForm";
+import { PrimaryBtn } from "../components/Button";
 
 const User = () => {
   const [showForm, setShowForm] = useState(false);
@@ -24,31 +24,31 @@ const User = () => {
   const { token } = useSelector((state) => state.userLogin);
 
   useEffect(() => {
-    console.log('effe')
+    console.log("effe");
     if (successDelete || !token) {
-      history.push('/');
+      history.push("/");
     } else {
-      console.log('else')
+      console.log("else");
       dispatch(userDetails(id));
     }
   }, [dispatch, id, successDelete, history, token]);
 
   const deleteHandler = (id) => {
-    if (window.confirm('Are you sure?')) {
+    if (window.confirm("Are you sure?")) {
       dispatch(userDelete(id));
     }
   };
 
   return (
     <>
-      <Modal
+      <EditForm
         show={showForm}
         onCancel={closeMapHandler}
-        header='Edit'
+        header="Edit"
         user={user}
         footer={<button onClick={closeMapHandler}>CLOSE</button>}
-      ></Modal>
-      <Link to='/'>Back To Users List</Link>
+      ></EditForm>
+      <Link to="/">Back To Users List</Link>
       <h1>User</h1>
       {loading && <Loader />}
       <p>First Name: {user.first_name}</p>

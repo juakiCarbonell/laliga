@@ -16,32 +16,32 @@ import {
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAIL,
   USER_LOGOUT,
-} from '../costants/user';
+} from "../costants/user";
 
 const initialUsersState = {
   loading: false,
-  error: '',
+  error: "",
   users: [],
 };
 const initialUserState = {
   loading: false,
-  error: '',
+  error: "",
   user: {},
 };
 const initialUserDeleteState = {
   loading: false,
-  error: '',
+  error: "",
   sucess: false,
 };
 const initialUserUpdateState = {
   loading: false,
-  error: '',
+  error: "",
   user: {},
 };
 
 const initialUserLoginState = {
   loading: false,
-  error: '',
+  error: "",
   token: null,
 };
 
@@ -79,7 +79,7 @@ export const userDelete = (state = initialUserDeleteState, action) => {
     case USER_DELETE_FAIL:
       return { ...state, loading: false, success: false };
     case USER_DELETE_RESET:
-      return {...initialUserDeleteState}
+      return { ...initialUserDeleteState };
     default:
       return state;
   }

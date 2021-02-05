@@ -9,13 +9,11 @@ const NavLink = styled(Link)`
   border: none;
   /* border: 1px solid #ff0055; */
   border-radius: 5px;
-  background: #25282a;
+  background: ${(props) => props.color || "#25282a"};
   color: white;
   cursor: pointer;
   margin-right: 1rem;
   text-decoration: none;
-  display: flex;
-  align-items: center;
   display: inline-block;
   :focus {
     outline: none;
@@ -23,7 +21,7 @@ const NavLink = styled(Link)`
 
   :hover,
   :active {
-    background: #505050;
+    background: ${(props) => props.hoverColor || "#505050"};
     /* border-color: #ff4382; */
   }
 `;
@@ -34,7 +32,8 @@ const ButtonWrapper = styled.button`
   border: none;
   /* border: 1px solid #ff0055; */
   border-radius: 5px;
-  background: #25282a;
+  background: ${(props) => props.color || "#25282a"};
+  /* background: #25282a; */
   color: white;
   cursor: pointer;
   margin-right: 1rem;
@@ -46,7 +45,7 @@ const ButtonWrapper = styled.button`
 
   :hover,
   :active {
-    background: #505050;
+    background: ${(props) => props.hoverColor || "#505050"};
     /* border-color: #ff4382; */
   }
 `;
@@ -54,13 +53,13 @@ const ButtonWrapper = styled.button`
 const Button = (props) => {
   if (props.to) {
     return (
-      <NavLink to={props.to} exact={props.exact}>
+      <NavLink to={props.to} exact={props.exact} {...props}>
         {props.children}
       </NavLink>
     );
   }
   return (
-    <ButtonWrapper type={props.type} onClick={props.onClick}>
+    <ButtonWrapper type={props.type} onClick={props.onClick} {...props}>
       {props.children}
     </ButtonWrapper>
   );

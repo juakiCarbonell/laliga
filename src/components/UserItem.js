@@ -17,6 +17,13 @@ const Wrapper = styled.div`
   .button {
     text-align: right;
   }
+  @media only screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    div {
+      margin-bottom: 10px;
+    }
+  }
 `;
 
 const User = ({ user }) => {

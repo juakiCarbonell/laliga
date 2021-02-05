@@ -15,6 +15,7 @@ const Wrapper = styled.div`
     width: 80%;
     margin: auto;
     justify-content: space-between;
+    align-items: center;
   }
 `;
 

@@ -39,7 +39,7 @@ const Users = () => {
 
   return (
     <>
-      <h1>Users</h1>
+      <h3>Users</h3>
 
       {usersToShow.map((user) => {
         return <UserItem key={user.id} user={user} />;

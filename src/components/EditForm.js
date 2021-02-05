@@ -5,22 +5,31 @@ import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { userUpdate } from "../actions/users";
 
+import Button from "../components/Button";
 import Backdrop from "./Backdrop";
 
 const Wrapper = styled.div`
   z-index: 100;
   position: fixed;
   top: 22vh;
-  left: 10%;
-  width: 80%;
+  left: 15%;
+  width: 70%;
   background: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 8px;
   header {
     /* width: 100%; */
-    padding: 1rem 0.5rem;
-    background: lightcoral;
+    background-color: #25282a;
     color: white;
+    display: inline-block;
+    width: 100%;
+    padding: 0 10%;
+    box-sizing: border-box;
+  }
+  .inputContainer,
+  .buttonsContainer {
+    width: 80%;
+    margin: 20px auto;
   }
 `;
 
@@ -43,27 +52,48 @@ const ModalOverlay = (props) => {
     }
   };
 
+  const cancelButtonHandler = (e) => {
+    e.preventDefault();
+    props.onCancel();
+  };
+
   const content = (
     <Wrapper>
       <header>
-        <h2>{props.header}</h2>
+        <h3>{props.header}</h3>
       </header>
       <form onSubmit={submitHandler}>
-        <div className={`modal__content ${props.contentClass}`}>
+        <div className="inputContainer">
+          <label htmlFor="firstName">
+            <b>First Name</b>
+          </label>
           <input
             type="text"
+            placeholder="Enter First Name"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
           />
+          <label htmlFor="lasNamet">
+            <b>Last Name</b>
+          </label>
           <input
             type="text"
+            placeholder="Enter Last Name"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
           />
         </div>
-        <button type="submit">Sumit</button>
+        <div className="buttonsContainer">
+          <Button type="submit">Sumit</Button>
+          <Button
+            color="red"
+            hoverColor="darkred"
+            onClick={cancelButtonHandler}
+          >
+            Cancel
+          </Button>
+        </div>
       </form>
-      <button onClick={props.onCancel}>Cancel</button>
     </Wrapper>
   );
 

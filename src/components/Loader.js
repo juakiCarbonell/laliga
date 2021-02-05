@@ -3,6 +3,8 @@ import styled, { keyframes } from "styled-components";
 
 const Wrapper = styled.div`
   margin: 100px auto;
+  display: flex;
+  justify-content: center;
 `;
 
 const rotate360 = keyframes`

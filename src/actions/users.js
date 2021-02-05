@@ -33,7 +33,6 @@ export const userList = () => async (dispatch) => {
       payload: data.data,
     });
   } catch (error) {
-    console.log("error", error);
     dispatch({
       type: USER_LIST_FAIL,
       payload: error,
@@ -108,13 +107,10 @@ export const userLogin = (email, password) => async (dispatch) => {
     const { data } = await api.post(`/login`, { email, password });
     // const { data } = await api.post(`/login?email=${email}&password=${password}`);
 
-    console.log("data", data);
-
     dispatch({
       type: USER_LOGIN_SUCCESS,
       payload: data,
     });
-    console.log("data", data);
     localStorage.setItem("token", JSON.stringify(data.token));
   } catch (error) {
     dispatch({

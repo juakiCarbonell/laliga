@@ -1,22 +1,44 @@
 import React from "react";
 import { FaEye } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Button from "../components/Button";
+
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 1px solid #808080;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  align-items: center;
+  background-color: #f5f5f5;
+  .button {
+    text-align: right;
+  }
+`;
 
 const User = ({ user }) => {
   const { token } = useSelector((state) => state.userLogin);
   return (
-    <>
-      <div>{user.first_name}</div>
-      <div>{user.last_name}</div>
+    <Wrapper>
       <div>
+        <b>First Name: </b> {user.first_name}
+      </div>
+      <div>
+        <b>Last Name: </b>
+        {user.last_name}
+      </div>
+
+      <div className="button">
         {token ? (
-          <Link to={`/user/${user.id}`}>
+          <Button to={`/user/${user.id}`}>
             <FaEye />
-          </Link>
+          </Button>
         ) : null}
       </div>
-    </>
+    </Wrapper>
   );
 };
 

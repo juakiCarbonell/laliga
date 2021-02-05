@@ -14,7 +14,8 @@ const Item = styled.div`
   padding: 8px 16px;
   cursor: pointer;
   border: 1px solid #ddd;
-  background: ${(props) => (props.active ? "palevioletred" : "white")};
+  background: ${(props) => (props.active ? "#25282a" : "white")};
+  color: ${(props) => (props.active ? "white" : "inherit")};
 `;
 
 const Paginate = ({ usersPerPage, totalUsers, paginate, currentPage }) => {

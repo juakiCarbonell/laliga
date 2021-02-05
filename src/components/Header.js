@@ -1,14 +1,21 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { userLogout } from "../actions/users";
 import styled from "styled-components";
 
+import Button from "./Button";
+
 const Wrapper = styled.div`
-  display: flex;
   height: 70px;
   width: 100%;
-  background-color: lightcoral;
+  background-color: #25282a;
+  color: white;
+  header {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: space-between;
+  }
 `;
 
 const Header = () => {
@@ -20,12 +27,14 @@ const Header = () => {
   const { token } = useSelector((state) => state.userLogin);
   return (
     <Wrapper>
-      <h3>LA LIGA</h3>
-      {token ? (
-        <button onClick={logoutHandler}>Logout</button>
-      ) : (
-        <Link to="/login">Login</Link>
-      )}
+      <header>
+        <h3>LA LIGA</h3>
+        {token ? (
+          <Button onClick={logoutHandler}>Logout</Button>
+        ) : (
+          <Button to="/login">Login</Button>
+        )}
+      </header>
     </Wrapper>
   );
 };

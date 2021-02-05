@@ -17,6 +17,7 @@ Variables
 ===============
 */
 
+
 :root {
   /* dark shades of primary color*/
   --clr-primary-1: hsl(185, 91%, 17%);
@@ -138,9 +139,9 @@ p {
 /*  global classes */
 
 .container {
-  display: flex;
-  flex-direction: column;
   height: 100vh;
+  width: 80%;
+  margin: 20px auto;
 }
 
 /* Full-width input fields */

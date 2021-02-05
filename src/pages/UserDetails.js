@@ -7,7 +7,7 @@ import { userDetails, userDelete } from "../actions/users";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
 import EditForm from "../components/EditForm";
-import { PrimaryBtn } from "../components/Button";
+import Button from "../components/Button";
 
 const User = () => {
   const [showForm, setShowForm] = useState(false);
@@ -53,17 +53,17 @@ const User = () => {
         header="Edit"
         user={user}
       ></EditForm>
-      <Link to="/">Back To Users List</Link>
+      <Button to="/">Back To Users List</Button>
       <h1>User</h1>
       <p>First Name: {user.first_name}</p>
       <p>Last Name: {user.last_name}</p>
       {/* <PrimaryBtn primary onClick={() => editHandler(user.id)}>
         EDIT
       </PrimaryBtn> */}
-      <PrimaryBtn primary onClick={openFormHandler}>
+      <Button primary onClick={openFormHandler}>
         Edit
-      </PrimaryBtn>
-      <PrimaryBtn onClick={() => deleteHandler(user.id)}>Delete</PrimaryBtn>
+      </Button>
+      <Button onClick={() => deleteHandler(user.id)}>Delete</Button>
     </>
   );
 };

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Loader from "../components/Loader";
 import Error from "../components/Error";
+import Button from "../components/Button";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -67,7 +68,7 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit">Sumit</button>
+        <Button type="submit">Sumit</Button>
       </form>
     </>
   );

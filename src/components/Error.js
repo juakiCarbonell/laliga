@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 const Wrapper = styled.div`
   margin: 100px auto;
   border: 2px solid red;

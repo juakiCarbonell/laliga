@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { userLogout } from "../actions/users";
 import styled from "styled-components";
 
+import { userLogout } from "../store/actions";
 import Button from "./Button";
 
 const Wrapper = styled.div`

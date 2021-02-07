@@ -12,11 +12,7 @@ import {
   USER_UPDATE_FAIL,
   USER_UPDATE_SUCCESS,
   USER_UPDATE_REQUEST,
-  USER_LOGIN_REQUEST,
-  USER_LOGIN_SUCCESS,
-  USER_LOGIN_FAIL,
-  USER_LOGOUT,
-} from "../costants/user";
+} from "../../costants/user";
 
 const initialUsersState = {
   loading: false,
@@ -32,17 +28,6 @@ const initialUserDeleteState = {
   loading: false,
   error: null,
   sucess: false,
-};
-const initialUserUpdateState = {
-  loading: false,
-  error: null,
-  user: {},
-};
-
-const initialUserLoginState = {
-  loading: false,
-  error: null,
-  token: null,
 };
 
 export const userList = (state = initialUsersState, action) => {
@@ -85,7 +70,7 @@ export const userDelete = (state = initialUserDeleteState, action) => {
   }
 };
 
-export const userUpdate = (state = initialUserUpdateState, action) => {
+export const userUpdate = (state = initialUserState, action) => {
   switch (action.type) {
     case USER_UPDATE_REQUEST:
       return { ...state, loading: true };
@@ -93,21 +78,6 @@ export const userUpdate = (state = initialUserUpdateState, action) => {
       return { ...state, loading: false, user: action.payload };
     case USER_UPDATE_FAIL:
       return { ...state, loading: false, error: action.payload };
-    default:
-      return state;
-  }
-};
-
-export const userLogin = (state = initialUserLoginState, action) => {
-  switch (action.type) {
-    case USER_LOGIN_REQUEST:
-      return { ...state, loading: true };
-    case USER_LOGIN_SUCCESS:
-      return { ...state, loading: false, token: action.payload };
-    case USER_LOGIN_FAIL:
-      return { ...state, loading: false, error: action.payload };
-    case USER_LOGOUT:
-      return { ...initialUserLoginState };
     default:
       return state;
   }

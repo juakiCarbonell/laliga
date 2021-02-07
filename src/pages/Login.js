@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { userLogin } from "../actions/users";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+
+import { userLogin } from "../store/actions";
 
 import Loader from "../components/Loader";
 import Error from "../components/Error";

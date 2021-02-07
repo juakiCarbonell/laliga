@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import styled from "styled-components";
 
-import { userDetails, userDelete } from "../actions/users";
+import { userDetails, userDelete } from "../store/actions";
 
 import Loader from "../components/Loader";
 import Error from "../components/Error";

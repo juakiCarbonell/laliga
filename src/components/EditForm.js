@@ -3,7 +3,8 @@ import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
-import { userUpdate } from "../actions/users";
+
+import { userUpdate } from "../store/actions";
 
 import Button from "../components/Button";
 import Backdrop from "./Backdrop";

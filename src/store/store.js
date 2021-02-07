@@ -1,9 +1,8 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
-import { userList, userDetails, userDelete, userLogin } from "./reducers/users";
-// import {} from './reducers/user';
-// import {} from './reducers/login';
+import { userList, userDetails, userDelete } from "./reducers/userReducers";
+import { userLogin } from "./reducers/loginReducers";
 
 const reducer = combineReducers({
   userList,
@@ -21,10 +20,5 @@ const userInfoFromStorage = localStorage.getItem("token")
 const initalState = { userLogin: { token: userInfoFromStorage } };
 
 const store = createStore(reducer, initalState, applyMiddleware(...middleware));
-// const store = createStore(
-//   reducer,
-//   initalState,
-//   composeWithDevTools(applyMiddleware(...middleware))
-// );
 
 export default store;

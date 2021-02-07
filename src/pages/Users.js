@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { userList } from "../actions/users";
+import { userList } from "../store/actions";
 
 import Loader from "../components/Loader";
 import Error from "../components/Error";

@@ -30,3 +30,4 @@ Para el Testing
 - enzyme-adapter-react-17 para la version 17, para poder ejecutar los test en react
 - redux-mock-store para repoducir la store dentro de los test
 
+Por ultimo, quiero mencionar que he utilizado localStorage para no perder la informacion del token si se refresca el navegador. 
